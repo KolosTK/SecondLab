@@ -16,4 +16,27 @@ public class Customer {
 
     }
 
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getID() {
+        return ID;
+    }
+
+    public void setID(String ID) {
+        this.ID = ID;
+    }
+
+    public List<Item> getBorrowedItems() {
+        return borrowedItems;
+    }
+
+    public void setBorrowedItems(List<Item> borrowedItems) {
+        this.borrowedItems = borrowedItems;
+    }
 }
