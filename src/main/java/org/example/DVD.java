@@ -1,7 +1,14 @@
 package org.example;
 
 public class DVD extends Item {
-    private int duration;
+    DVD (String titile, int duration)
+    {
+        this.duration=duration;
+        setTitle(title);
+        dvdId=getUniqueID();
+    }
+    private int dvdId;
+    private int duration; //minutes
     public void borrowItem()
     {
 
@@ -10,4 +17,9 @@ public class DVD extends Item {
     {
 
     }
+    public void getID()
+    {
+        System.out.println(dvdId);
+    }
+
 }
