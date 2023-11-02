@@ -1,21 +1,34 @@
 package org.example;
 import java.util.List;
 
-public class Library {
+public class Library implements Manageable{
     private List<Item> items;
     private List <Customer> customers;
 
-    private void RegisterCustomer(Customer customer)
+    public void RegisterCustomer(Customer customer)
     {
 
     }
-    private void LendItem(Customer customer, Item item)
+    public void LendItem(Customer customer, Item item)
     {
 
     }
-    private void returnItem(Customer customer,Item item)
+    public void returnItem(Customer customer,Item item)
     {
 
     }
+    public void add(Item item)
+    {
+
+    }
+    public void remove(Item item)
+    {
+
+    }
+    public void ListBorrowed()
+    {
+
+    }
+
 
 }
