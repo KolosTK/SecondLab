@@ -16,12 +16,11 @@ public class Customer {
 
     public void returnItem (Item item)
     {
-        item.setBorrowed(false);
         borrowedItems.remove(item);
     }
     public void borrowItem(Item item)
     {
-        item.setBorrowed(true);
+
         borrowedItems.add(item);
     }
 
