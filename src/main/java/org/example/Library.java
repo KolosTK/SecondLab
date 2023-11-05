@@ -28,11 +28,19 @@ public class Library implements Manageable{
     }
     public void ListBorrowed()
     {
-
+        for (Item item:items) {
+            if (item.isBorrowed()==true) {
+                System.out.println(item.getTitle());
+            }
+        }
     }
     public void ListAvailable()
     {
-
+        for (Item item:items) {
+            if (item.isBorrowed()==false) {
+                System.out.println(item.getTitle());
+            }
+        }
     }
 
 
