@@ -24,8 +24,6 @@ abstract class Item {
         return uniqueID;
     }
 
-
-
     public boolean isBorrowed() {
         return isBorrowed;
     }
