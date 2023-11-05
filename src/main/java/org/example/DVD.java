@@ -1,7 +1,7 @@
 package org.example;
 
 public class DVD extends Item {
-    DVD (String titile, int duration)
+    DVD (String title, int duration)
     {
         this.duration=duration;
         setTitle(title);
