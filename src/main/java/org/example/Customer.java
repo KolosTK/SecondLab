@@ -1,19 +1,28 @@
 package org.example;
 
+import java.util.ArrayList;
 import java.util.List;
 public class Customer {
+    Customer(String name)
+    {
+        this.name=name;
+        ID++;
+        borrowedItems = new ArrayList<Item>();
+    }
 
     private String name;
-    private String ID;
-    private List<Item> borrowedItems;
+    private static int ID = 0;
+    private List<Item> borrowedItems ;
 
-    private void returnItem ()
+    public void returnItem (Item item)
     {
-
+        item.setBorrowed(false);
+        borrowedItems.remove(item);
     }
-    private void borrowItem()
+    public void borrowItem(Item item)
     {
-
+        item.setBorrowed(true);
+        borrowedItems.add(item);
     }
 
     public String getName() {
@@ -24,11 +33,11 @@ public class Customer {
         this.name = name;
     }
 
-    public String getID() {
+    public int getID() {
         return ID;
     }
 
-    public void setID(String ID) {
+    public void setID(int ID) {
         this.ID = ID;
     }
 
