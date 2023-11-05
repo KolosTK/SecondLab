@@ -2,24 +2,19 @@ package org.example;
 import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
 
-import java.io.ByteArrayOutputStream;
-import java.io.PrintStream;
-
-import static org.junit.jupiter.api.Assertions.*;
+import java.util.ArrayList;
+import java.util.List;
 
 class LibraryTest {
-    private final ByteArrayOutputStream outContent = new ByteArrayOutputStream();
-    private final ByteArrayOutputStream errContent = new ByteArrayOutputStream();
-    private final PrintStream originalOut = System.out;
-    private final PrintStream originalErr = System.err;
+
     private Library lib;
     private Book book1;
     private Book book2;
+    private DVD dvd;
+    private Customer customer;
+    private List<Item> testItem;
 
     @BeforeEach
     public void setUp()
@@ -27,8 +22,10 @@ class LibraryTest {
         lib = new Library();
         book1 = new Book("First chanse","Redric Medison");
         book2 = new Book("Princess","Medit Pierro");
+        dvd = new DVD("Alaska",123);
+        customer = new Customer ("Tomas");
+        testItem = new ArrayList<Item>();
 
-        System.setOut(new PrintStream(outContent));
     }
 
     @Test
@@ -47,6 +44,34 @@ class LibraryTest {
         lib.remove(book2);
         assertEquals(1,lib.getItems().size());
         assertFalse(lib.getItems().contains(book2));
+    }
+    @Test
+    void testLendItem()
+    {
+        testItem.add(book1);
+        testItem.add(book2);
+
+        lib.lendItem(customer,book1);
+        lib.lendItem(customer,book2);
+
+        assertTrue(book1.isBorrowed());
+        assertFalse(dvd.isBorrowed());
+        assertEquals(testItem,customer.getBorrowedItems());
+    }
+    @Test
+    void testReturnItem()
+    {
+        testItem.add(book1);
+
+        lib.lendItem(customer,book1);
+        lib.lendItem(customer,book2);
+
+        lib.returnItem(customer,book2);
+
+        assertTrue(book1.isBorrowed());
+        assertFalse(book2.isBorrowed());
+
+        assertEquals(customer.getBorrowedItems(),testItem);
     }
     /*@Test
     void testListBorrowed() {
