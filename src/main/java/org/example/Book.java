@@ -2,7 +2,7 @@ package org.example;
 
 public class Book extends Item{
 
-    Book (String titile, String author)
+    Book (String title, String author)
     {
         this.author=author;
         setTitle(title);
