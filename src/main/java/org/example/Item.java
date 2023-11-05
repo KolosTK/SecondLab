@@ -5,7 +5,7 @@ abstract class Item {
     {
         uniqueID++;
     }
-    public String title;
+    private String title;
     private static int uniqueID = 0;
     private boolean isBorrowed = false;
 
