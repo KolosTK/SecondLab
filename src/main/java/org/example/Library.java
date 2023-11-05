@@ -18,6 +18,10 @@ public class Library implements Manageable{
     {
 
     }
+    public List<Item> getItems()
+    {
+        return items;
+    }
     public void add(Item item)
     {
         items.add(item);
@@ -42,6 +46,7 @@ public class Library implements Manageable{
             }
         }
     }
+
 
 
 }
