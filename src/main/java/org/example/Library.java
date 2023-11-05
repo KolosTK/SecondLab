@@ -6,17 +6,19 @@ public class Library implements Manageable{
     private List<Item> items = new ArrayList<Item>();
     private List <Customer> customers=new ArrayList<Customer>();
 
-    public void RegisterCustomer(Customer customer)
+    public void registerCustomer(Customer customer)
     {
-
+        customers.add(customer);
     }
-    public void LendItem(Customer customer, Item item)
+    public void lendItem(Customer customer, Item item)
     {
-
+        customer.borrowItem(item);
+        item.setBorrowed(true);
     }
     public void returnItem(Customer customer,Item item)
     {
-
+        customer.returnItem(item);
+        item.setBorrowed(false);
     }
     public List<Item> getItems()
     {
@@ -30,7 +32,7 @@ public class Library implements Manageable{
     {
         items.remove(item);
     }
-    public void ListBorrowed()
+    public void listBorrowed()
     {
         for (Item item:items) {
             if (item.isBorrowed()==true) {
@@ -38,7 +40,7 @@ public class Library implements Manageable{
             }
         }
     }
-    public void ListAvailable()
+    public void listAvailable()
     {
         for (Item item:items) {
             if (item.isBorrowed()==false) {
